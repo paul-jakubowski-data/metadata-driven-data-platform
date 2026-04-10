@@ -1,0 +1,13 @@
+{
+  "project_name": "metadata-driven-data-platform",
+  "source_files": {
+    "orders": "data/raw/orders.csv",
+    "customers": "data/raw/customers.csv"
+  },
+  "outputs": {
+    "curated_orders": "data/curated/curated_orders.csv",
+    "validation_report": "outputs/validation_report.csv",
+    "metadata_summary": "outputs/metadata_summary.json",
+    "lineage": "outputs/lineage.json"
+  }
+}

@@ -1,0 +1,5 @@
+check_name,status
+order_id_not_null,PASS
+customer_id_not_null,PASS
+sales_amount_positive,PASS
+order_id_unique,PASS

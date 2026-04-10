@@ -1,0 +1,6 @@
+order_id,customer_id,order_date,product_category,quantity,unit_price,customer_name,region,customer_segment,sales_amount
+1001,C001,2026-01-10,Electronics,1,499.99,Acme Retail,Northeast,Enterprise,499.99
+1002,C002,2026-01-11,Home,2,79.5,Blue Sky Shops,South,SMB,159.0
+1003,C001,2026-01-15,Accessories,3,19.99,Acme Retail,Northeast,Enterprise,59.97
+1004,C003,2026-01-20,Fitness,1,299.0,Peak Fitness,West,Mid-Market,299.0
+1005,C004,2026-01-22,Electronics,2,249.99,Urban Living,Midwest,SMB,499.98

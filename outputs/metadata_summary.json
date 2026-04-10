@@ -1,0 +1,18 @@
+{
+  "dataset_name": "curated_orders",
+  "row_count": 5,
+  "column_count": 10,
+  "columns": [
+    "order_id",
+    "customer_id",
+    "order_date",
+    "product_category",
+    "quantity",
+    "unit_price",
+    "customer_name",
+    "region",
+    "customer_segment",
+    "sales_amount"
+  ],
+  "generated_at": "2026-04-10T05:33:25.658719"
+}
