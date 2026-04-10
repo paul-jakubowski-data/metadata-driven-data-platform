@@ -1,0 +1,5 @@
+customer_id,customer_name,region,customer_segment
+C001,Acme Retail,Northeast,Enterprise
+C002,Blue Sky Shops,South,SMB
+C003,Peak Fitness,West,Mid-Market
+C004,Urban Living,Midwest,SMB

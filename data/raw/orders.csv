@@ -1,0 +1,6 @@
+order_id,customer_id,order_date,product_category,quantity,unit_price
+1001,C001,2026-01-10,Electronics,1,499.99
+1002,C002,2026-01-11,Home,2,79.50
+1003,C001,2026-01-15,Accessories,3,19.99
+1004,C003,2026-01-20,Fitness,1,299.00
+1005,C004,2026-01-22,Electronics,2,249.99
