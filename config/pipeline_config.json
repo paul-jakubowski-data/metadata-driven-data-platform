@@ -10,5 +10,28 @@
     "validation_report": "outputs/validation_report.csv",
     "metadata_summary": "outputs/metadata_summary.json",
     "lineage": "outputs/lineage.json"
-  }
+  },
+"validation_rules": [
+    {
+      "name": "order_id_not_null",
+      "column": "order_id",
+      "rule": "not_null"
+    },
+    {
+      "name": "customer_id_not_null",
+      "column": "customer_id",
+      "rule": "not_null"
+    },
+    {
+      "name": "sales_amount_positive",
+      "column": "sales_amount",
+      "rule": "greater_than",
+      "value": 0
+    },
+    {
+      "name": "order_id_unique",
+      "column": "order_id",
+      "rule": "unique"
+    }
+  ]
 }

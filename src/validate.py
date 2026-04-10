@@ -1,38 +1,39 @@
 import pandas as pd
 
 
-def run_validations(df: pd.DataFrame) -> pd.DataFrame:
+def run_validations(df: pd.DataFrame, config: dict) -> pd.DataFrame:
     """
-    Run core validation checks against the curated dataset.
+    Run validation checks based on configuration rules.
     """
     results = []
 
-    results.append(
-        {
-            "check_name": "order_id_not_null",
-            "status": "PASS" if df["order_id"].notna().all() else "FAIL",
-        }
-    )
+    for rule in config["validation_rules"]:
+        rule_name = rule["name"]
+        column = rule["column"]
+        rule_type = rule["rule"]
 
-    results.append(
-        {
-            "check_name": "customer_id_not_null",
-            "status": "PASS" if df["customer_id"].notna().all() else "FAIL",
-        }
-    )
+        try:
+            if rule_type == "not_null":
+                status = "PASS" if df[column].notna().all() else "FAIL"
 
-    results.append(
-        {
-            "check_name": "sales_amount_positive",
-            "status": "PASS" if (df["sales_amount"] > 0).all() else "FAIL",
-        }
-    )
+            elif rule_type == "greater_than":
+                value = rule["value"]
+                status = "PASS" if (df[column] > value).all() else "FAIL"
 
-    results.append(
-        {
-            "check_name": "order_id_unique",
-            "status": "PASS" if df["order_id"].is_unique else "FAIL",
-        }
-    )
+            elif rule_type == "unique":
+                status = "PASS" if df[column].is_unique else "FAIL"
+
+            else:
+                status = "UNKNOWN_RULE"
+
+        except Exception as e:
+            status = f"ERROR: {e}"
+
+        results.append({
+            "check_name": rule_name,
+            "column": column,
+            "rule": rule_type,
+            "status": status
+        })
 
     return pd.DataFrame(results)

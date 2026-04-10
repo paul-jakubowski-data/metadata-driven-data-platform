@@ -1,5 +1,5 @@
-check_name,status
-order_id_not_null,PASS
-customer_id_not_null,PASS
-sales_amount_positive,PASS
-order_id_unique,PASS
+check_name,column,rule,status
+order_id_not_null,order_id,not_null,PASS
+customer_id_not_null,customer_id,not_null,PASS
+sales_amount_positive,sales_amount,greater_than,ERROR: 'value'
+order_id_unique,order_id,unique,PASS

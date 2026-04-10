@@ -13,7 +13,7 @@ def main() -> None:
         orders_df, customers_df = load_data(config)
         curated_df = transform_data(orders_df, customers_df)
 
-        validation_df = run_validations(curated_df)
+        validation_df = run_validations(curated_df, config)
         metadata = generate_metadata(curated_df, config)
         lineage = generate_lineage(config)
 
