@@ -1,3 +1,5 @@
+import logging
+from config.logging_config import setup_logging
 from src.config_loader import load_config
 from src.ingest import load_data
 from src.transform import transform_data
@@ -7,13 +9,23 @@ from src.lineage import generate_lineage
 
 
 def main() -> None:
+    setup_logging()
+    logger = logging.getLogger(__name__)
+
     try:
+        logger.info("Starting pipeline")
+
         config = load_config()
 
         orders_df, customers_df = load_data(config)
+        logger.info("Data loaded successfully")
+
         curated_df = transform_data(orders_df, customers_df)
+        logger.info("Data transformation complete")
 
         validation_df = run_validations(curated_df, config)
+        logger.info("Validation completed")
+
         metadata = generate_metadata(curated_df, config)
         lineage = generate_lineage(config)
 
@@ -26,12 +38,11 @@ def main() -> None:
         with open(config["outputs"]["lineage"], "w", encoding="utf-8") as f:
             f.write(lineage)
 
-        print("Pipeline completed successfully.")
+        logger.info("Pipeline completed successfully")
 
     except Exception as e:
-        print(f"Pipeline failed: {e}")
+        logger.error(f"Pipeline failed: {e}")
         raise
-
 
 if __name__ == "__main__":
     main()
