@@ -1,5 +1,6 @@
 {
   "project_name": "metadata-driven-data-platform",
+  "dataset_name": "curated_orders",
   "source_files": {
     "orders": "data/raw/orders.csv",
     "customers": "data/raw/customers.csv"

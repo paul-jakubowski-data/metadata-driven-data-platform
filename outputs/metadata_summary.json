@@ -14,5 +14,9 @@
     "customer_segment",
     "sales_amount"
   ],
-  "generated_at": "2026-04-10T05:33:25.658719"
+  "source_files": {
+    "orders": "data/raw/orders.csv",
+    "customers": "data/raw/customers.csv"
+  },
+  "generated_at": "2026-04-10T06:07:53.900715"
 }
